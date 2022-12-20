@@ -27,12 +27,12 @@ public class SpawnCommand extends BaseCommand {
         long diff = System.currentTimeMillis()-pl.playerManager.getPlayer(player).lastCombat;
 
         if (diff <= config.tagSeconds*1000) {
-            player.sendMessage("戦闘中はテレポートできません。");
+            player.sendMessage("§cYou can't teleport until under combat.");
             return;
         }
 
         Long sec = config.spawnSeconds;
-        player.sendMessage(sec+"秒後にテレポートします...動かないでください...");
+        player.sendMessage("§aYou will be teleported after "+sec+" seconds.");
 
         pl.playerManager.getPlayer(player).moveTag = false;
 

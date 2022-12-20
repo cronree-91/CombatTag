@@ -20,7 +20,7 @@ public class Listener implements org.bukkit.event.Listener {
         PlayerEntity epl = pl.playerManager.getPlayer(event.getPlayer());
         if (!epl.moveTag) {
             epl.moveTag = true;
-            event.getPlayer().sendMessage("テレポートをキャンセルしました。");
+            event.getPlayer().sendMessage("§cCancelled teleport because you moved.");
         }
     }
 
