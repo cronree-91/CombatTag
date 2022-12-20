@@ -2,6 +2,7 @@ package jp.cron.combattag.event;
 
 import jp.cron.combattag.Plugin;
 import jp.cron.combattag.manager.PlayerEntity;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,7 +21,7 @@ public class Listener implements org.bukkit.event.Listener {
         PlayerEntity epl = pl.playerManager.getPlayer(event.getPlayer());
         if (!epl.moveTag) {
             epl.moveTag = true;
-            event.getPlayer().sendMessage("§cCancelled teleport because you moved.");
+            event.getPlayer().sendMessage(ChatColor.RED+"Cancelled teleport because you moved.");
         }
     }
 

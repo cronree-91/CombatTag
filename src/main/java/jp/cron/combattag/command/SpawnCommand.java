@@ -8,6 +8,7 @@ import co.aikar.commands.annotation.Dependency;
 import jp.cron.combattag.Plugin;
 import jp.cron.combattag.config.Config;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Server;
 import org.bukkit.entity.Player;
 
@@ -27,12 +28,12 @@ public class SpawnCommand extends BaseCommand {
         long diff = System.currentTimeMillis()-pl.playerManager.getPlayer(player).lastCombat;
 
         if (diff <= config.tagSeconds*1000) {
-            player.sendMessage("§cYou can't teleport until under combat.");
+            player.sendMessage(ChatColor.RED+"You can't teleport until under combat.");
             return;
         }
 
         Long sec = config.spawnSeconds;
-        player.sendMessage("§aYou will be teleported after "+sec+" seconds.");
+        player.sendMessage(ChatColor.GREEN+"You will be teleported after "+sec+" seconds.");
 
         pl.playerManager.getPlayer(player).moveTag = false;
 
