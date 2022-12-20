@@ -3,8 +3,3 @@ version: '0.1'
 main: jp.cron.combattag.Plugin
 api-version: 1.19
 load: POSTWORLD
-commands:
-  spawn:
-    description: Teleport you to spawn point.
-    usage: /spawn
-    aliases: [s]
