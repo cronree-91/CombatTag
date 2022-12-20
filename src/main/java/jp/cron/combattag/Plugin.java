@@ -4,6 +4,7 @@ import jp.cron.combattag.command.SpawnCommand;
 import jp.cron.combattag.config.Config;
 import co.aikar.commands.PaperCommandManager;
 import jp.cron.combattag.manager.PlayerManager;
+import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
@@ -26,8 +27,17 @@ public final class Plugin extends JavaPlugin {
 
     private void loadConfig() {
         this.config = new Config();
-        config.spawnPoint = this.getConfig().getLocation("spawnPoint");
-        config.tagSeconds = this.getConfig().getLong("tagSeconds");
         config.spawnSeconds = this.getConfig().getLong("spawnSeconds");
+        config.tagSeconds = this.getConfig().getLong("tagSeconds");
+
+        String worldName = this.getConfig().getString("spawnPoint.world");
+        int x = this.getConfig().getInt("spawnPoint.x");
+        int y = this.getConfig().getInt("spawnPoint.y");
+        int z = this.getConfig().getInt("spawnPoint.z");
+        double yaw = this.getConfig().getDouble("spawnPoint.yaw");
+        double pitch = this.getConfig().getDouble("spawnPoint.pitch");
+
+        config.spawnPoint = new Location(getServer().getWorld(worldName), x, y, z, (float) yaw, (float) pitch);
+
     }
 }
