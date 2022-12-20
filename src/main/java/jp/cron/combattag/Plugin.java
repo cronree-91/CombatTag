@@ -3,6 +3,7 @@ package jp.cron.combattag;
 import jp.cron.combattag.command.SpawnCommand;
 import jp.cron.combattag.config.Config;
 import co.aikar.commands.PaperCommandManager;
+import jp.cron.combattag.event.Listener;
 import jp.cron.combattag.manager.PlayerManager;
 import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -21,6 +22,8 @@ public final class Plugin extends JavaPlugin {
 
         loadConfig();
         manager.registerDependency(Config.class, config);
+
+        getServer().getPluginManager().registerEvents(new Listener(this), this);
 
         manager.registerCommand(new SpawnCommand());
     }
